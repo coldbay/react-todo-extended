@@ -1,7 +1,7 @@
 import React, {useState} from "react"; //리액트 라이브러리에서 React, Component 클래스 가져오기
 import "./App.css"
 import Form from "./components/Form";
-import List from "./components/List"
+import Lists from "./components/Lists"
 
 export default function App(){  //함수형 컴포넌트
 
@@ -39,7 +39,7 @@ export default function App(){  //함수형 컴포넌트
           </div>
 
           
-          <List todoData={todoData} setTodoData={setTodoData}/>
+          <Lists todoData={todoData} setTodoData={setTodoData}/>
           <Form value={value} setValue={setValue} handleSubmit={handleSubmit}/>
 
           
