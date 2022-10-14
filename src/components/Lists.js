@@ -2,11 +2,11 @@ import React from 'react'
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import List from './List';
 
-export default function Lists({todoData, setTodoData}) {
+const Lists= React.memo(({todoData, setTodoData})=> {
 
 
 
-  
+  console.log('Lists is rendering')
 
   const handleEnd =(result) => {
     //result의 source 인덱스와 destination 인덱스 활용
@@ -59,4 +59,6 @@ return (
       </DragDropContext>
     </div>      
   )
-}
+})
+
+export default Lists

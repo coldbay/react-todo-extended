@@ -1,6 +1,8 @@
 import React from 'react'
 
-const List =({snapshot,provided,todoData,setTodoData,completed,title, id}) => {
+const List = React.memo(({snapshot,provided,todoData,setTodoData,completed,title, id}) => {
+
+  console.log('List is rendering')
 
   const handleClick = (id) => {
     let newtodoData = todoData.filter((data) => data.id !== id); // 조건문을 통과하는 요소들로 재나열
@@ -35,7 +37,7 @@ const List =({snapshot,provided,todoData,setTodoData,completed,title, id}) => {
                   </div>
               </div>       
   )
-}
+})
 
 export default List
 
