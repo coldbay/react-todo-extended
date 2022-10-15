@@ -3,11 +3,14 @@ import "./App.css"
 import Form from "./components/Form";
 import Lists from "./components/Lists"
 
+const initialTodoData = localStorage.getItem("todoData")
+? JSON.parse(localStorage.getItem("todoData"))
+: []
+
 export default function App(){  //함수형 컴포넌트
 
-  console.log('App is rendering')
 
-  const[todoData,setTodoData]= useState([]); // 첫번째 인수- 변수이름, 두번째 인수- State를 정하는 함수
+  const[todoData,setTodoData]= useState(initialTodoData); // 첫번째 인수- 변수이름, 두번째 인수- State를 정하는 함수
   const[value,setValue]= useState("");
 
   
@@ -27,11 +30,13 @@ export default function App(){  //함수형 컴포넌트
       }  
       //this.setState({ todoData : [...todoData, newTodo], value:""}); -> 전개 연산자 (특정 객체의 값 -> 다른 객체로 복제, 옮길때)
       setTodoData(prev => [...prev, newTodo])
+      localStorage.setItem('todoData',JSON.stringify([...todoData, newTodo]))
       setValue("")
     }
 
     const Delete_todoData = () =>{
       setTodoData([])
+      localStorage.setItem('todoData',JSON.stringify([]))
     }
 
 

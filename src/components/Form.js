@@ -2,7 +2,6 @@ import React from 'react'
 
 export default function Form({value,setValue,handleSubmit}) {
 
-    console.log('Form is rendering')
 
     const handleChange = (e) => {
         //console.log('e',e.target.value)

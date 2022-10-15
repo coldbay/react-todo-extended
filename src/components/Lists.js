@@ -6,7 +6,6 @@ const Lists= React.memo(({todoData, setTodoData})=> {
 
 
 
-  console.log('Lists is rendering')
 
   const handleEnd =(result) => {
     //result의 source 인덱스와 destination 인덱스 활용
@@ -23,6 +22,7 @@ const Lists= React.memo(({todoData, setTodoData})=> {
     //destination.index에 reorderedItem
     newtodoData.splice(result.destination.index, 0, reorderedItem)
     setTodoData(newtodoData)
+    localStorage.setItem('todoData',JSON.stringify(newtodoData))
   }
 
 return (
@@ -40,7 +40,6 @@ return (
             >
             {(provided, snapshot) => ( //템플릿 리터럴 `${} ` https://curryyou.tistory.com/185
               <List
-                key={data.id} //props 안하면 에러
                 id={data.id}
                 completed={data.completed}
                 title={data.title}
