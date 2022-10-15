@@ -19,8 +19,8 @@ export default function Form({value,setValue,handleSubmit}) {
               value={value} //적히는 부분
               onChange={handleChange}// 적으면 value값 변경
             />
-            <input
-              className='p-2 text-blue-400 border-2 border-blue-400 rounded hover:text-white hover:bg-blue-200'
+            <input //hover- 위에 커서를 가져다 두면
+              className='p-2 text-blue-400 border-2 border-blue-400 rounded hover:text-white hover:bg-blue-200' 
               type="submit"
               value="입력"
             />
