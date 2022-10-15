@@ -1,9 +1,11 @@
 import React, {useState} from "react"; //리액트 라이브러리에서 React, Component 클래스 가져오기
 import "./App.css"
 import Form from "./components/Form";
-import List from "./components/List"
+import Lists from "./components/Lists"
 
 export default function App(){  //함수형 컴포넌트
+
+  console.log('App is rendering')
 
   const[todoData,setTodoData]= useState([]); // 첫번째 인수- 변수이름, 두번째 인수- State를 정하는 함수
   const[value,setValue]= useState("");
@@ -28,6 +30,10 @@ export default function App(){  //함수형 컴포넌트
       setValue("")
     }
 
+    const Delete_todoData = () =>{
+      setTodoData([])
+    }
+
 
   // 랜더 시 보이는 UI (랜더 함수내에서 UI 작성), List에 props
     return( 
@@ -36,10 +42,11 @@ export default function App(){  //함수형 컴포넌트
         <div className="w-full p-6 m-4 bg-white rounded shadow lg:w-3/4 lg:max-w-lg">
           <div className="flex justify-between mb-3">
             <h1>할 일 목록</h1>
+            <button onClick={Delete_todoData}>Delete All</button>
           </div>
 
           
-          <List todoData={todoData} setTodoData={setTodoData}/>
+          <Lists todoData={todoData} setTodoData={setTodoData}/>
           <Form value={value} setValue={setValue} handleSubmit={handleSubmit}/>
 
           
