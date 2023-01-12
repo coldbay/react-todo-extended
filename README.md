@@ -1,8 +1,11 @@
 # react-todo-extended
 
+```
 기존 todo리스트 심화버전
+
 참고한 강의: react-todo와 동일
 강의노트 필기: https://natural-dracopelta-45d.notion.site/todo-extended-efeba6be525440bda12bb32f2ceb0bc3
+```
 
 ### 달라진 점
 ```
@@ -10,7 +13,6 @@
 tailwind-css 사용(classname에서 즉각적인 스타일 지정)
 드래그 앤 드롭 기능(list.js)
 edit 기능(lists.js)
-
 ```
 
 ### 컴포넌트별로 나눠 설명
