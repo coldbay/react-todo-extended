@@ -6,10 +6,9 @@ const Lists= React.memo(({todoData, setTodoData})=> {
 
 
 
-
   const handleEnd =(result) => {
-    //result의 source 인덱스와 destination 인덱스 활용
-    console.log("result",result)
+    //result의 source(시작점)와 destination(종점) 인덱스 활용
+    //-> request 대상을 설명하는 문자열을 출력
 
     if(!result.destination) return;
 
@@ -23,8 +22,10 @@ const Lists= React.memo(({todoData, setTodoData})=> {
     newtodoData.splice(result.destination.index, 0, reorderedItem)
     setTodoData(newtodoData)
     localStorage.setItem('todoData',JSON.stringify(newtodoData))
+
   }
 
+//Droppable 공간에서 Draggable 요소들이 drag&drop 가능해진다.
 return (
     <div>
       <DragDropContext onDragEnd={handleEnd}>

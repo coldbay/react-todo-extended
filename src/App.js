@@ -40,7 +40,7 @@ export default function App(){  //함수형 컴포넌트
     }
 
 
-  // 랜더 시 보이는 UI (랜더 함수내에서 UI 작성), List에 props
+  // 랜더 시 보이는 UI (랜더 함수내에서 UI 작성), Lists, Form에 props
     return( 
       <div className="flex items-center justify-center w-screen h-screen bg-blue-100">
 

@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# react-todo-extended
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+기존 todo리스트 심화버전
+참고한 강의: react-todo와 동일
+강의노트 필기: https://natural-dracopelta-45d.notion.site/todo-extended-efeba6be525440bda12bb32f2ceb0bc3
 
-## Available Scripts
+### 달라진 점
+```
+컴포넌트별로 js 나뉨(props 활용)
+tailwind-css 사용(classname에서 즉각적인 스타일 지정)
+드래그 앤 드롭 기능(list.js)
+edit 기능(lists.js)
 
-In the project directory, you can run:
+```
 
-### `npm start`
+### 컴포넌트별로 나눠 설명
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
+App.js - 배경과 실행 초기에 보이는 제일 큰 박스를 담당,
+TodoData state를 모두 지우는 Delete All 버튼이 있으며
+Lists에 todoData를 Form에 value와 handleSubmit(value를 제목으로 하여 newTodo를 setTodoData하는 함수)를 props한다.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+Form.js - 할 일을 입력하는 form과 이를 submit하는 input 태그로 구성,
+handleChange 함수로 setValue하고 onSubmit시 handleSubmit 함수를 실행한다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+Lists.js - react-beautiful-dnd를 통해 드래그 앤 드롭 기능을 구현하였다.
+각각의 List 객체들을 Draggable하게 만들었으며 
+onDragEnd할때 source와 destination의 index를 활용하여 newtodoData를 재구성하는 handleEnd함수를 호출한다.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+List.js - isEditing에 따라 return되는 html 요소가 다르며
+true일때 editedTitle를 입력하는 input태그와 이를 submit할 버튼이,
+false일때 checkbox타입의 input태그를 렌더링한다.
+이를 이용하여 todoData를 새로 setItem하는 메서드들을 사용한다.
+```
